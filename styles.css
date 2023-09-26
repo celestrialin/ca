@@ -60,7 +60,7 @@ nav {
     background-image: url('space.png');
     background-size: cover;
     background-position: center;
-    height: 38vh;
+    height: 43vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,7 +165,7 @@ nav {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: ; /* Create curved edges */
+    border-radius: 15%; /* Create curved edges */
     cursor: pointer; /* Add cursor pointer on hover */
     transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
@@ -297,51 +297,85 @@ footer {
     transform: scale(1.2); /* Scale up on hover for an interactive effect */
 }
 
-/* Style the mobile menu button */
-.mobile-menu-button {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
+/* Style the hamburger icon */
+.hamburger {
     cursor: pointer;
     display: none; /* Initially hide it */
 }
 
-/* Style the mobile navigation menu */
-.mobile-nav {
-    background-color: #000;
-    position: absolute;
-    top: 60px; /* Adjust top position as needed */
-    right: 20px;
-    z-index: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    display: none; /* Initially hide it */
+.hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
-.mobile-nav.show {
-    display: block; /* Show it when the "show" class is added */
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    /* Show the hamburger icon and hide navigation links */
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+    }
+
+    .nav-links {
+        display: none; /* Hide navigation links on mobile */
+        position: absolute;
+        top: 60px; /* Adjust top position as needed */
+        right: 20px;
+        background-color: #000;
+        border-radius: 5%;
+        overflow: hidden;
+    }
+
+    .nav-links.show {
+        display: flex; /* Show navigation links when the "show" class is added */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Style navigation links for mobile */
+    .nav-links li {
+        padding: 15px;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.2rem;
+        display: block;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background-color: #333;
+    }
 }
 
-.mobile-nav ul {
-    list-style: none;
-    padding: 0;
+/* Style the hamburger icon with a transition */
+.hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: transform 0.4s, opacity 0.4s;
 }
 
-.mobile-nav li {
-    text-align: center;
+/* Rotate the top and bottom bars to create an "X" icon when clicked */
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    opacity: 0.7;
 }
 
-.mobile-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: block;
-    padding: 15px;
-    transition: background-color 0.3s ease;
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
 }
 
-.mobile-nav a:hover {
-    background-color: #333;
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+    opacity: 0.7;
 }
