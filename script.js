@@ -1,3 +1,13 @@
+// JavaScript to toggle the mobile navigation links and animate the hamburger icon
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links'); // Select the navigation links
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active'); // Toggle the "active" class on click
+    navLinks.classList.toggle('show');
+});
+
+
 // Sample data for events and gallery images
 const eventsData = [
   { name: "Stargazing Night", date: "October 15, 2023" },
@@ -82,3 +92,4 @@ chatInput.addEventListener('input', (event) => {
         displayLinkPreview(links[0]);
     }
 });
+
